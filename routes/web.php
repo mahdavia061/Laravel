@@ -16,7 +16,7 @@ use App\Http\Controllers\Frontend\aUsersController;
 */
 
 Route::get('/', function () {
-    return view('hello');
+    return view('wellcome');
 });
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function () {
     Route::get('/users',[UsersController::class,'index'])->name('admin.users.list');//admin/users
