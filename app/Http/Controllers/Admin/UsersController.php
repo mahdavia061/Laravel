@@ -11,7 +11,8 @@ class UsersController extends Controller
 {
     public function index()
     {
-        return view('admin.users.index')->with(['panel_title'=>'Users List']);
+        $users = User::all();
+        return view('admin.users.index',compact('users'))->with(['panel_title'=>'Users List']);
     }
     
     public function create()
@@ -22,23 +23,10 @@ class UsersController extends Controller
     public function store(UserRequest $userRequest)
     {
 
-        // $this->validate(request(),[
-        //     'full_name' => 'required',
-        //     'email'     => 'required|email',
-        //     'password'  => 'required|min:6|max:12',
-
-        // ],[
-        //     'full_name.required'=>'Please enter your fullname.',
-        //     'email.required'=>'Email is required.',
-        //     'email.email'=>'The email entered is not valid.',
-        //     'password.required'=>'Password is required.',
-        //     'password.min'=>'The password must be at least 6 characters long.',
-        //     'password.max'=>'The password must be at most 12 characters.',
-        // ]);
-
+       
         $user_data=[
 
-            'name'=>request()->input('full_name'),
+            'full_name'=>request()->input('full_name'),
             'email'=>request()->input('email'),
             'password'=>request()->input('password'),
             'role'=>request()->input('role'),
@@ -47,5 +35,8 @@ class UsersController extends Controller
         ];
 
         $new_user_object = User::create($user_data);
+        if($new_user_object instanceof User){
+            return redirect()->route('admin.users.list')->with('success',true);
+        }
     }
 }
