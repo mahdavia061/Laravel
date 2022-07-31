@@ -4,6 +4,6 @@
     <td>{{$user->email}}</td>
     <td>{{$user->wallet}}</td>
     <td>
-
+        @include('admin.users.operations')
     </td>
 </tr>

@@ -8,6 +8,10 @@
     <title>Larafile's admin panel</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/bootstrap-rtl.min.css" rel="stylesheet">
+    
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link href="/css/bootstarp-icons.css" rel="stylesheet">
     <link href="/css/admin-custom.css" rel="stylesheet">
 </head>
 <body>
