@@ -1,7 +1,8 @@
 @if (session('success'))
 
 <div class="alert alert-success">
-    <p>New User Creating Was Successfull</p>
+    <p>{{session('success')}}</p>
 </div>
     
 @endif
+

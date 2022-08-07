@@ -22,5 +22,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function () {
     Route::get('/users',[UsersController::class,'index'])->name('admin.users.list');//admin/users
     Route::get('/users/create',[UsersController::class,'create'])->name('admin.users.create');//admin/users/create
     Route::post('/users/create',[UsersController::class,'store'])->name('admin.users.store');
+    Route::get('/users/delete/{user_id}',[UsersController::class, 'delete'])->name('admin.users.delete');
+    Route::get('/users/edit/{user_id}',[UsersController::class, 'edit'])->name('admin.users.edit');
+    Route::post('/users/edit/{user_id}',[UsersController::class, 'update'])->name('admin.users.update');
+
+
 });
 
