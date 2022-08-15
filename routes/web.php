@@ -48,6 +48,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('/plans/create', [PlansController::class, 'store'])->name('admin.plans.store');
     Route::get('/plans/edit{plan_id}', [PlansController::class, 'edit'])->name('admin.plans.edit');
     Route::post('/plans/edit{plan_id}', [PlansController::class, 'update'])->name('admin.plans.update');
+    Route::get('/plans/delete{plan_id}', [PlansController::class, 'delete'])->name('admin.plans.delete');
 
 });
 
