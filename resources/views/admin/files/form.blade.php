@@ -2,7 +2,7 @@
     @include('admin.partials.errors')
     <div class="col-xs-12 col-md-6">
 
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
 
             <div class="form-group">
