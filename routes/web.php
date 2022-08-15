@@ -5,6 +5,7 @@ use \App\Http\Controllers\HelloController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Frontend\aUsersController;
 use \App\Http\Controllers\Admin\FilesController;
+use \App\Http\Controllers\Admin\PlansController;
 
 /*
 |--------------------------------------------------------------------------
