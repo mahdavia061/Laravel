@@ -35,7 +35,11 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function () {
 
 
     //files routes
-    Route::get('/users',[FilesController::class,'index'])->name('admin.files.list');//admin/files
+    Route::get('/files',[FilesController::class,'index'])->name('admin.files.list');
+    Route::get('/files/create',[FilesController::class,'create'])->name('admin.files.create');
+    Route::post('/files/create',[FilesController::class,'store'])->name('admin.files.store');
+    Route::get('/files/edit{file_id}',[FilesController::class,'edit'])->name('admin.files.edit');
+    Route::post('/files/edit{file_id}',[FilesController::class,'update'])->name('admin.files.update');
 
 });
 

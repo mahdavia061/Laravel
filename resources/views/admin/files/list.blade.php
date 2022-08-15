@@ -10,7 +10,7 @@
             @include('admin.files.columns')
             </thead>
 
-            @foreach ($users as $user)
+            @foreach ($files as $file)
                 @include('admin.files.item',$file)
             @endforeach
 

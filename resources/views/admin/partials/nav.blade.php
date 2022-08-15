@@ -12,7 +12,7 @@
             Users
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{route('admin.users.list')}}">Uers List </a>
+            <a class="dropdown-item" href="{{route('admin.users.list')}}">Users List </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{route('admin.users.create')}}">New User</a>
           </div>
@@ -25,7 +25,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{route('admin.files.list')}}">Files List </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">New File</a>
+              <a class="dropdown-item" href="{{route('admin.files.create')}}">New File</a>
             </div>
           </li>
 
