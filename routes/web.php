@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\HelloController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Frontend\aUsersController;
+use \App\Http\Controllers\Admin\FilesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,13 @@ use App\Http\Controllers\Frontend\aUsersController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function () {
+
+    //user routes
     Route::get('/users',[UsersController::class,'index'])->name('admin.users.list');//admin/users
     Route::get('/users/create',[UsersController::class,'create'])->name('admin.users.create');//admin/users/create
     Route::post('/users/create',[UsersController::class,'store'])->name('admin.users.store');
@@ -27,5 +34,13 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function () {
     Route::post('/users/edit/{user_id}',[UsersController::class, 'update'])->name('admin.users.update');
 
 
+    //files routes
+    Route::get('/users',[FilesController::class,'index'])->name('admin.files.list');//admin/files
+
 });
+
+
+
+
+
 

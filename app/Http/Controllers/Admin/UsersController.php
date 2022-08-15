@@ -46,10 +46,10 @@ class UsersController extends Controller
         if ($user_id && ctype_digit($user_id)) {
             $userItem = User::find($user_id);
 
-            if($userItem && $userItem instanceof User){
+            if ($userItem && $userItem instanceof User) {
                 $userItem->delete();
 
-                return redirect()->route('admin.users.list')->with('success','User successfully deleted.');
+                return redirect()->route('admin.users.list')->with('success', 'User successfully deleted.');
             }
         }
     }
@@ -57,20 +57,26 @@ class UsersController extends Controller
 
     public function edit($user_id)
     {
-        if ($user_id && ctype_digit($user_id))
-        {
+        if ($user_id && ctype_digit($user_id)) {
             $userItem = User::find($user_id);
 
-            if($userItem && $userItem instanceof User){
-               
-                return view('admin.users.edit',compact('userItem'))->with(['panel_title' => 'Edit User']);
+            if ($userItem && $userItem instanceof User) {
+
+                return view('admin.users.edit', compact('userItem'))->with(['panel_title' => 'Edit User']);
 
             }
         }
     }
 
-    public function update()
+    public function update(UserRequest $userRequest, $user_id)
     {
+        $inputs = request()->except('_token');
+        if (!request()->has('password')) {
+            unset($inputs['password']);
+        }
 
+        $userItem = User::find($user_id);
+        $userItem->update($inputs);
+        return redirect()->route('admin.users.list')->with('success', 'User successfuly Edited.');
     }
 }
