@@ -40,6 +40,17 @@
             </div>
           </li>
 
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  Packages
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{route('admin.packages.list')}}">Packages List </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{{route('admin.packages.create')}}">New Package</a>
+              </div>
+          </li>
+
       </ul>
 
     </div>

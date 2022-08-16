@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Frontend\aUsersController;
 use \App\Http\Controllers\Admin\FilesController;
 use \App\Http\Controllers\Admin\PlansController;
+use \App\Http\Controllers\Admin\PackagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/plans/edit{plan_id}', [PlansController::class, 'edit'])->name('admin.plans.edit');
     Route::post('/plans/edit{plan_id}', [PlansController::class, 'update'])->name('admin.plans.update');
     Route::get('/plans/delete{plan_id}', [PlansController::class, 'delete'])->name('admin.plans.delete');
+
+
+    //packages routes
+    Route::get('/packages', [PackagesController::class, 'index'])->name('admin.packages.list');
+    Route::get('/packages/create', [PackagesController::class, 'create'])->name('admin.packages.create');
+    Route::post('/packages/create', [PackagesController::class, 'store'])->name('admin.packages.store');
+    Route::get('/packages/edit{package_id}', [PackagesController::class, 'edit'])->name('admin.packages.edit');
+    Route::post('/packages/edit{package_id}', [PackagesController::class, 'update'])->name('admin.packages.update');
+    Route::get('/packages/delete{package_id}', [PackagesController::class, 'delete'])->name('admin.packages.delete');
 
 });
 
