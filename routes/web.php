@@ -59,6 +59,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/packages/edit{package_id}', [PackagesController::class, 'edit'])->name('admin.packages.edit');
     Route::post('/packages/edit{package_id}', [PackagesController::class, 'update'])->name('admin.packages.update');
     Route::get('/packages/delete{package_id}', [PackagesController::class, 'delete'])->name('admin.packages.delete');
+    Route::get('/packages/sync_files{package_id}', [PackagesController::class, 'syncfiles'])->name('admin.packages.sync_files');
+    Route::post('/packages/sync_files{package_id}', [PackagesController::class, 'updatesyncfiles'])->name('admin.packages.sync_files');
 
 });
 
