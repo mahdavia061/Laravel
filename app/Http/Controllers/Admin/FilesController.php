@@ -48,6 +48,7 @@ class FilesController extends Controller
 
             $new_file_data['file_name'] = $new_file_name;
             File::create($new_file_data);
+            return redirect()->route('admin.files.list')->with('success', 'New file Creating Was Successfull.');
         }
 
 

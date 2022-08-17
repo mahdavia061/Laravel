@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\File;
 use App\Models\Package;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class PackagesController extends Controller
 {
@@ -54,15 +56,27 @@ class PackagesController extends Controller
 
     }
 
-    public function syncfiles()
+    public function syncfiles(Request $request,$package_id )
     {
         $files = File::all();
-        return view('admin.packages.files',compact('files'))->with('panel_title','Select Package\'s files');
+        $package_Item = Package::find($package_id);
+        $package_files = $package_Item->files()->get()->pluck('file_id')->toArray();
+//        $files_ids = [];
+//        foreach ($package_files as $file){
+//            $files_ids[] = $file->file_id;
+//        }
+        return view('admin.packages.files',compact('files','package_files'))->with('panel_title','Select Package\'s files');
     }
 
-    public function updatesyncfiles()
+    public function updatesyncfiles(Request $request,$package_id)
     {
-
+    $package_Item = Package::find($package_id);
+    $files = $request->input('files');
+    if ($package_Item && is_array($files)){
+//        $package_Item->files()->attach($files);
+        $package_Item->files()->sync($files);
+        return redirect()->route('admin.packages.list')->with('success','files selected successfully.');
+    }
     }
 
 }

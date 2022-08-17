@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\aUsersController;
 use \App\Http\Controllers\Admin\FilesController;
 use \App\Http\Controllers\Admin\PlansController;
 use \App\Http\Controllers\Admin\PackagesController;
+use \App\Http\Controllers\Admin\PaymentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/packages/delete{package_id}', [PackagesController::class, 'delete'])->name('admin.packages.delete');
     Route::get('/packages/sync_files{package_id}', [PackagesController::class, 'syncfiles'])->name('admin.packages.sync_files');
     Route::post('/packages/sync_files{package_id}', [PackagesController::class, 'updatesyncfiles'])->name('admin.packages.sync_files');
+
+    //payments routes
+    Route::get('/payments', [PaymentsController::class, 'index'])->name('admin.payments.list');
+    Route::get('/payments/create', [PaymentsController::class, 'create'])->name('admin.payments.create');
+    Route::post('/payments/create', [PaymentsController::class, 'store'])->name('admin.payments.store');
+    Route::get('/payments/edit{payment_id}', [PaymentsController::class, 'edit'])->name('admin.payments.edit');
+    Route::post('/payments/edit{payment_id}', [PaymentsController::class, 'update'])->name('admin.payments.update');
+    Route::get('/payments/delete{payment_id}', [PaymentsController::class, 'delete'])->name('admin.payments.delete');
+    Route::get('/payments/sync_files{payment_id}', [PaymentsController::class, 'syncfiles'])->name('admin.payments.sync_files');
+    Route::post('/payments/sync_files{payment_id}', [PaymentsController::class, 'updatesyncfiles'])->name('admin.payments.sync_files');
+
 
 });
 

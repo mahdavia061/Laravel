@@ -2,6 +2,8 @@
 
     <td>{{$package->package_title}}</td>
     <td>{{$package->package_price}}</td>
+    <td>{{$package->files()->get()->count();}}</td>
+
 
     <td style="text-align: center">
 
