@@ -3,6 +3,7 @@
     <td>{{$user->full_name}}</td>
     <td>{{$user->email}}</td>
     <td>{{$user->wallet}}</td>
+    <td>{{$user->packages()->count()}}</td>
     <td style="text-align: center">
         @include('admin.users.operations',$user)
     </td>

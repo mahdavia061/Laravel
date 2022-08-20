@@ -12,12 +12,13 @@
                     <th>NAME</th>
                     <th>EMAIL</th>
                     <th>WALLET</th>
+                    <th>PACKAGES</th>
                     <th>OPERATIONS</th>
                 </tr>
             </thead>
 
             @foreach ($users as $user)
-                @include('admin.userS.item',$user)
+                @include('admin.users.item',$user)
             @endforeach
 
         </table>

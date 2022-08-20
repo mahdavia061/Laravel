@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/users/delete/{user_id}', [UsersController::class, 'delete'])->name('admin.users.delete');
     Route::get('/users/edit/{user_id}', [UsersController::class, 'edit'])->name('admin.users.edit');
     Route::post('/users/edit/{user_id}', [UsersController::class, 'update'])->name('admin.users.update');
+    Route::get('/users/packages/{user_id}', [UsersController::class, 'packages'])->name('admin.users.packages');
 
 
     //files routes

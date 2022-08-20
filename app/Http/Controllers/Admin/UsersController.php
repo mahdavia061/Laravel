@@ -11,7 +11,7 @@ class UsersController extends Controller
 {
     public function index()
     {
-        
+
         $users = User::all();
         return view('admin.users.index', compact('users'))->with(['panel_title' => 'Users List']);
     }
@@ -79,5 +79,16 @@ class UsersController extends Controller
         $userItem = User::find($user_id);
         $userItem->update($inputs);
         return redirect()->route('admin.users.list')->with('success', 'User successfuly Edited.');
+    }
+
+    public function packages(Request $request,$user_id)
+    {
+        $user = User::find($user_id);
+        if (!$user){
+        return redirect()->back();
+        }
+        $user_packages = $user->packages()->get();
+
+    return view('admin.users.packages',compact('user_packages'))->with('panel_title','User\'s Packages');
     }
 }
