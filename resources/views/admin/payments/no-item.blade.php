@@ -1,7 +1,7 @@
 <tr>
 
-  <td colspan="5">
-      <span> There isn't any plan in your library. </span>
+  <td colspan="9">
+      <span> There isn't any Payment. </span>
   </td>
 
 </tr>

@@ -65,13 +65,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     //payments routes
     Route::get('/payments', [PaymentsController::class, 'index'])->name('admin.payments.list');
-    Route::get('/payments/create', [PaymentsController::class, 'create'])->name('admin.payments.create');
-    Route::post('/payments/create', [PaymentsController::class, 'store'])->name('admin.payments.store');
-    Route::get('/payments/edit{payment_id}', [PaymentsController::class, 'edit'])->name('admin.payments.edit');
-    Route::post('/payments/edit{payment_id}', [PaymentsController::class, 'update'])->name('admin.payments.update');
+//    Route::get('/payments/create', [PaymentsController::class, 'create'])->name('admin.payments.create');
+//    Route::post('/payments/create', [PaymentsController::class, 'store'])->name('admin.payments.store');
+//    Route::get('/payments/edit{payment_id}', [PaymentsController::class, 'edit'])->name('admin.payments.edit');
+//    Route::post('/payments/edit{payment_id}', [PaymentsController::class, 'update'])->name('admin.payments.update');
     Route::get('/payments/delete{payment_id}', [PaymentsController::class, 'delete'])->name('admin.payments.delete');
-    Route::get('/payments/sync_files{payment_id}', [PaymentsController::class, 'syncfiles'])->name('admin.payments.sync_files');
-    Route::post('/payments/sync_files{payment_id}', [PaymentsController::class, 'updatesyncfiles'])->name('admin.payments.sync_files');
 
 
 });

@@ -19,4 +19,10 @@ class Package extends Model
     {
         return $this->belongsToMany(File::class,'package_file','package_id','file_id');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class,'user_packages','package_id','user_id')->withPivot(['amount','created_at']);
+
+    }
 }

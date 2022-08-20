@@ -6,19 +6,19 @@
     <table class="table table-bordered">
 
         <thead>
-        @include('admin.plans.columns')
+        @include('admin.payments.columns')
         </thead>
 
-    @if ($plans && count($plans)>0)
+    @if ($payments && count($payments)>0)
 
 
 
 
-            @foreach ($plans as $plan)
-                @include('admin.plans.item',$plan)
+            @foreach ($payments as $payment)
+                @include('admin.payments.item',$payment)
             @endforeach
         @else
-        @include('admin.plans.no-item')
+        @include('admin.payments.no-item')
 
     @endif
 

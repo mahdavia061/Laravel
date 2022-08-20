@@ -1,8 +1,12 @@
 <tr>
 
-    <th>Title</th>
-    <th>Download limit</th>
+    <th>User</th>
     <th>Price</th>
-    <th>Dead line</th>
+    <th>Type</th>
+    <th>Bank</th>
+    <th>Reserve ID</th>
+    <th>Reference ID</th>
+    <th>Date of payment</th>
+    <th>Status</th>
     <th>OPERATIONS</th>
 </tr>

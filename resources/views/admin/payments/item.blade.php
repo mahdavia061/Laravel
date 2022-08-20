@@ -1,13 +1,18 @@
 <tr>
 
-    <td>{{$plan->plan_title}}</td>
-    <td>{{$plan->plan_limit_download_count}}</td>
-    <td>{{$plan->plan_price}}</td>
-    <td>{{$plan->plan_days_count}}</td>
-    <td style="text-align: center">
+    <td>{{$payment->user->full_name}}</td>
+    <td>{{number_format($payment->payment_amount)}}</td>
+    <td>{{$payment->payment_method_format()}}</td>
+    <td>{{$payment->payment_gateway_name}}</td>
+    <td>{{$payment->payment_res_num}}</td>
+    <td>{{$payment->payment_ref_num}}</td>
+    <td>{{$payment->payment_created_at }}</td>
+    <td>{{$payment->payment_status_format()}}</td>
 
-        <a href="{{route('admin.plans.edit',[$plan->plan_id])}}"><i class="fa fa-edit px-2"></i></a>
-        <a href="{{route('admin.plans.delete',[$plan->plan_id])}}"><i class="fa fa-trash"></i></a>
+    <td>
+
+
     </td>
+
 
 </tr>

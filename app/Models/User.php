@@ -38,4 +38,19 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
+    public function payments()
+    {
+        return $this->hasMany(Payment::class,'payment_user_id');
+    }
+
+    public function subscribes()
+    {
+        return $this->hasMany(Subscribe::class,'subscribe_user_id');
+    }
+
+    public function packages()
+    {
+        return $this->belongsToMany(Package::class,'user_packages','user_id','package_id')->withPivot(['amount','created_at']);
+    }
+
 }
