@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\Categorizable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Package extends Model
 {
     use HasFactory;
+
+    use Categorizable;
 
     protected $primaryKey = 'package_id';
 
@@ -25,4 +28,6 @@ class Package extends Model
         return $this->belongsToMany(User::class,'user_packages','package_id','user_id')->withPivot(['amount','created_at']);
 
     }
+
+    
 }
