@@ -8,6 +8,8 @@ use \App\Http\Controllers\Admin\FilesController;
 use \App\Http\Controllers\Admin\PlansController;
 use \App\Http\Controllers\Admin\PackagesController;
 use \App\Http\Controllers\Admin\PaymentsController;
+use \App\Http\Controllers\Admin\CategoriesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +73,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 //    Route::get('/payments/edit{payment_id}', [PaymentsController::class, 'edit'])->name('admin.payments.edit');
 //    Route::post('/payments/edit{payment_id}', [PaymentsController::class, 'update'])->name('admin.payments.update');
     Route::get('/payments/delete{payment_id}', [PaymentsController::class, 'delete'])->name('admin.payments.delete');
+
+
+    //categories routes
+    Route::get('/categories', [CategoriesController::class, 'index'])->name('admin.categories.list');
+    Route::get('/categories/create', [CategoriesController::class, 'create'])->name('admin.categories.create');
+    Route::post('/categories/create', [CategoriesController::class, 'store'])->name('admin.categories.store');
+    Route::get('/categories/edit{category_id}', [CategoriesController::class, 'edit'])->name('admin.categories.edit');
+    Route::post('/categories/edit{category_id}', [CategoriesController::class, 'update'])->name('admin.categories.update');
+    Route::get('/categories/delete{category_id}', [CategoriesController::class, 'delete'])->name('admin.categories.delete');
 
 
 });
