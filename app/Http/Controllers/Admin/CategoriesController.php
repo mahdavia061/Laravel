@@ -35,7 +35,7 @@ class CategoriesController extends Controller
     public function edit(Request $request,$category_id)
     {
         $categoryItem = Category::find($category_id);
-    return view('admin.categories.edit',compact('categoryItem'))->with('panel_title','Edit Category');
+        return view('admin.categories.edit',compact('categoryItem'))->with('panel_title','Edit Category');
     }
 
     public function update(Request $request, $category_id)
@@ -46,7 +46,8 @@ class CategoriesController extends Controller
         ]);
 
         if ($updateResult){
-            return redirect()->route('admin.categories.list')->with('success', 'Category Deleted successfully.');
+
+            return redirect()->route('admin.categories.list')->with('success', 'Category Editing was successfully.');
 
         }
     }
@@ -54,5 +55,8 @@ class CategoriesController extends Controller
     public function delete(Request $request,$category_id)
     {
     Category::destroy([$category_id]);
+
+        return redirect()->route('admin.categories.list')->with('success', 'Category Deleted successfully.');
+
     }
 }
